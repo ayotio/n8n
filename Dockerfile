@@ -1,5 +1,5 @@
 # Use the official n8n image as base
-FROM n8nio/n8n:1.46.0
+FROM n8nio/n8n:latest
 
 # Copy your package.json & install the older MCP SDK
 COPY package.json /tmp/package.json
