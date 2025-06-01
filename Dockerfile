@@ -1,14 +1,13 @@
-# ─────────────────────────────────────────────────────────────
-# Use the official n8n image as the base (latest n8n).
+# Use the latest n8n image as the base
 FROM n8nio/n8n:latest
 
-# Run as root for the install step.
+# Switch to root so we can install global packages
 USER root
 
-# Install the MCP SDK version 1.4.1 (a truly published npm tag).
+# Install MCP SDK v1.4.1 (speaks protocol 2024-11-05)
 RUN npm install -g @modelcontextprotocol/sdk@1.4.1
 
-# Switch back to the non‐root "node" user (n8n’s default).
+# Switch back to the non-root node user (n8n’s default)
 USER node
 
-# (No CMD override needed — n8n’s own entrypoint is left intact.)
+# (No CMD override—n8n’s built-in entrypoint will run automatically)
